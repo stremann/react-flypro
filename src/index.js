@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export function wrap(states, commands) {
+export function wrap(states, handlers) {
     return function (WrappedComponent) {
         return class extends Component {
             render() {
@@ -8,7 +8,7 @@ export function wrap(states, commands) {
                     <WrappedComponent
                         {...this.props}
                         {...states(this.props.store.getState(), this.props)}
-                        {...commands(this.props.store.send, this.props)}
+                        {...handlers(this.props.store.send, this.props)}
                         />
                 )
             }
