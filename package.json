@@ -1,0 +1,42 @@
+{
+  "name": "react-flypro",
+  "version": "0.0.0",
+  "description": "React Flypro",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib dist",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-flypro.js",
+    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-flypro.min.js",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stremann/react-flypro.git"
+  },
+  "keywords": [
+    "react-flypro",
+    "react",
+    "wrap"
+  ],
+  "author": "Roman Stremedlovskyi <stremann@yahoo.com> (https://github.com/stremann)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stremann/react-flypro/issues"
+  },
+  "homepage": "https://github.com/stremann/react-flypro#readme",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "cross-env": "^2.0.0",
+    "flypro": "^0.3.0",
+    "react": "^15.3.1",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.2"
+  }
+}
