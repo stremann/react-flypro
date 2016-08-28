@@ -34,7 +34,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "cross-env": "^2.0.0",
-    "flypro": "^0.3.0",
+    "flypro": "^0.4.2",
     "react": "^15.3.1",
     "rimraf": "^2.5.4",
     "webpack": "^1.13.2"
