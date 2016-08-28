@@ -9,20 +9,16 @@ export function wrap(states, handlers) {
                         {...this.props}
                         {...states(this.props.store.getState(), this.props)}
                         {...handlers(this.props.store.send, this.props)}
-                        />
+                    />
                 )
             }
 
             componentDidMount() {
-                this.unsubscribe = this.props.store.subscribe(this.handleChange.bind(this))
+                this.unsubscribe = this.props.store.subscribe(this.forceUpdate.bind(this))
             }
 
             componentWillUnmount() {
                 this.unsubscribe()
-            }
-
-            handleChange() {
-                this.forceUpdate()
             }
         }
     }
