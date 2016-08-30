@@ -11,7 +11,8 @@
     "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
     "test:watch": "npm test -- --watch",
     "test": "mocha --require ./test/setup.js --compilers js:babel-register --recursive",
-    "prepublish": "npm run clean && npm run build"
+    "check:src": "npm run test",
+    "prepublish": "npm run clean && npm run check:src && npm run build"
   },
   "repository": {
     "type": "git",
