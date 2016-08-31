@@ -12,11 +12,10 @@
     "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
     "test:watch": "npm test -- --watch",
     "test:coverage": "nyc npm test",
-    "test:report": "nyc report --reporter=lcov",
     "pretest": "rimraf coverage",
     "test": "mocha --require test/setup.js --compilers js:babel-register --recursive",
     "check:src": "npm run lint && npm run test",
-    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "coverage": "cat coverage/lcov.info | coveralls",
     "prepublish": "npm run clean && npm run check:src && npm run build"
   },
   "repository": {
@@ -34,6 +33,10 @@
     "url": "https://github.com/stremann/react-flypro/issues"
   },
   "homepage": "https://github.com/stremann/react-flypro#readme",
+  "nyc": {
+    "reporter": "lcov",
+    "report-dir": "coverage"
+  },
   "dependencies": {
     "react": "^15.3.1",
     "react-dom": "^15.3.1"
