@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/stremann/react-flypro#readme",
   "nyc": {
+    "lines": 95,
     "reporter": "lcov",
     "report-dir": "coverage"
   },
