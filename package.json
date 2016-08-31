@@ -1,6 +1,6 @@
 {
   "name": "react-flypro",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "React Flypro",
   "main": "lib/index.js",
   "scripts": {
