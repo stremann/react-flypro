@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -46,6 +46,12 @@ describe('Wrap', () => {
         instanceOfExtendedComponent.props = mount(<MockComponent store={mockStore} />).props();
     });
 
+    it('should validate prop types', () => {
+        const propTypes = ExtendedComponent.propTypes();
+        expect(propTypes).to.deep.equal({
+            store: PropTypes.object.isRequired
+        });
+    });
 
     it('should extend base component with store', () => {
         const WrappedComponent = instanceOfExtendedComponent.render();
