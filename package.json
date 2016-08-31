@@ -16,7 +16,7 @@
     "pretest": "rimraf coverage",
     "test": "mocha --require test/setup.js --compilers js:babel-register --recursive",
     "check:src": "npm run lint && npm run test",
-    "coverage": "npm run test:report | coveralls",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
     "prepublish": "npm run clean && npm run check:src && npm run build"
   },
   "repository": {
