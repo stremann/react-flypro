@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import chaiEnzyme from 'chai-enzyme';
 
-import { wrap } from '../../src/';
+import wrap from '../../src/';
 
 chai.use(sinonChai);
 chai.use(chaiEnzyme());
@@ -18,7 +18,7 @@ describe('Wrap', () => {
     let MockComponent;
     let ExtendedComponent;
     let instanceOfExtendedComponent;
-    let instanceOfExtendedComponentUnsubscribeStub = sinon.stub();
+    const instanceOfExtendedComponentUnsubscribeStub = sinon.stub();
 
     beforeEach(() => {
         mockStore = {
@@ -36,7 +36,7 @@ describe('Wrap', () => {
 
     beforeEach(() => {
         MockComponent = () => (
-            <div className="mock-component"></div>
+            <div className="mock-component" />
         );
         ExtendedComponent = wrap(mockStates, mockHandlers)(<MockComponent store={mockStore} />);
 

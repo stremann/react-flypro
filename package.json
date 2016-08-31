@@ -5,13 +5,14 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
+    "lint": "eslint src test",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-flypro.js",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/react-flypro.min.js",
     "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
     "test:watch": "npm test -- --watch",
     "test": "mocha --require ./test/setup.js --compilers js:babel-register --recursive",
-    "check:src": "npm run test",
+    "check:src": "npm run lint && npm run test",
     "prepublish": "npm run clean && npm run check:src && npm run build"
   },
   "repository": {
@@ -45,6 +46,11 @@
     "chai-enzyme": "^0.5.1",
     "cross-env": "^2.0.0",
     "enzyme": "^2.4.1",
+    "eslint": "^3.4.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.0",
+    "eslint-plugin-react": "^6.2.0",
     "jsdom": "^9.4.2",
     "mocha": "^3.0.2",
     "react-addons-test-utils": "^15.3.1",
