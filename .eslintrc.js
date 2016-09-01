@@ -6,8 +6,8 @@ module.exports = {
     },
     rules: {
         'comma-dangle': 0,
-        'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
-        'indent': [2, 4, {'SwitchCase': 1}],
+        'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
+        'indent': [2, 4, {SwitchCase: 1}],
         'no-console': ['error', { allow: ['warn'] }],
         'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
         'react/jsx-indent': [2, 4],
