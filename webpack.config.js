@@ -13,6 +13,9 @@ var config = {
         library: 'ReactFlypro',
         libraryTarget: 'umd'
     },
+    externals: {
+        "react": "React"
+    },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
