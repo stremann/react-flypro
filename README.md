@@ -44,6 +44,52 @@ It does not modify the component class passed to it. It *returns* a new, wrapped
 
 A React component class that injects state and commands into your component according to the specified options.
 
+### Gist
+
+Let's take a look how [Counter](https://github.com/stremann/react-flypro/tree/master/examples/counter/react%2Bflypro%2Breact-flypro) works under the hood.
+
+```js
+import wrap from 'react-flypro';
+
+// Presentational component
+const Counter = ({value, onIncrement, onDecrement}) => (
+    <div>
+        Clicked: {value} times
+        {' '}
+        <button onClick={onIncrement}>
+            +
+        </button>
+        {' '}
+        <button onClick={onDecrement}>
+            -
+        </button>
+    </div>
+);
+
+// Inject state as a value prop
+const states = (state) => ({
+    value: state
+});
+
+// Inject INCREMENT/DECREMENT commands as onIncrement/onDecrement callbacks
+const handlers = (send) => ({
+    onIncrement: () => {
+        send({ type: 'INCREMENT' });
+    },
+    onDecrement: () => {
+        send({ type: 'DECREMENT' });
+    }
+});
+
+// Exporting wrapped Counter component with states and handlers as props
+export default wrap(
+    states,
+    handlers
+)(Counter)
+```
+
+That's it!
+
 ### Change Log
 
 This project adheres to [Semantic Versioning](http://semver.org/).
