@@ -15,3 +15,6 @@ webpack.config.js
 
 # Test source
 test
+
+# Examples directory
+examples
