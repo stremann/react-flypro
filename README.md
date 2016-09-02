@@ -27,6 +27,23 @@ If you don't use a module bundler, it's also fine. The `react-flypro` npm packag
 
 The React Flypro source code is written in ES2015 but it is precompiled both CommonJS and UMD builds to ES5 so they work in [any modern browser](http://caniuse.com/#feat=es5).
 
+### API
+
+#### `wrap([states], [handlers])`
+
+Wrap React component to Flypro store.  
+It does not modify the component class passed to it. It *returns* a new, wrapped component class, for you to use.
+
+##### Arguments
+
+1.  [`states(state, [ownProps]): stateProps`]: if the function is specified, the component will subscribe to Flypro store updates. Any time it updates, `states` will be called. Its result must be a plain object, and it will be merged into the component’s props. If `ownProps` is specified as a second argument, its value will be the props passed to your component, and `states` will be additionally re-invoked whenever the component receives new props.
+
+2.  [`handlers(send, [ownProps]): sendProps`]: if a function is passed, it will be given `send`. The default implementation injects `send` into your component’s props. If `ownProps` is specified as a second argument, its value will be the props passed to your component, and `handlers` will be re-invoked whenever the component receives new props.
+
+##### Returns
+
+A React component class that injects state and commands into your component according to the specified options.
+
 ### Change Log
 
 This project adheres to [Semantic Versioning](http://semver.org/).
