@@ -46,7 +46,7 @@ A React component class that injects state and commands into your component acco
 
 ### Gist
 
-Let's take a look how [Counter](https://github.com/stremann/react-flypro/tree/master/examples/counter/react%2Bflypro%2Breact-flypro) works under the hood.
+Let's take a look how [Counter](https://github.com/stremann/react-flypro/tree/master/examples/counter/react%2Bflypro%2Breact-flypro) bindings work under the hood.
 
 ```js
 import wrap from 'react-flypro';
